@@ -21,7 +21,7 @@ public class TransactionImpl implements Transaction {
 
     public TransactionImpl(PlatformTransactionManager transactionManager) {
         this.transactionManager = transactionManager;
-        transactionDefinition = new DefaultTransactionDefinition();
+        this.transactionDefinition = new DefaultTransactionDefinition();
     }
 
     public void setPropagationBehavior(int propagationBehavior) {
