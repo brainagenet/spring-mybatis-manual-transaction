@@ -19,6 +19,7 @@
 package net.brainage.example.mapper;
 
 import net.brainage.SpringMybatisManualTransactionApplication;
+import net.brainage.example.model.Department;
 import net.brainage.example.model.Employee;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
@@ -50,6 +51,19 @@ public class EmployeeMapperTest {
     @Test
     public void findAllEmployees() {
         List<Employee> emps = employeeMapper.findAll();
+        assertThat(emps.size(), is(12));
+        emps.stream().forEach(System.out::println);
+    }
+
+    @Test
+    public void testFindOne() {
+        int id = 7566;
+        Employee employee = employeeMapper.findOne(id);
+        Department department = employee.getDepartment();
+        int deptId = department.getId();
+        assertThat(deptId, is(20));
+        System.out.println("employee: " + employee + " => " + department);
+        System.out.println("manager: " + employee.getManager() + " => " + employee.getManager().getDepartment());
     }
 
 }

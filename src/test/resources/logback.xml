@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration scan="true" scanPeriod="30 seconds">
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
         <encoder>
             <pattern>%d{HH:mm:ss} %-5level %logger{26}:%L - %msg%n</pattern>
@@ -15,14 +16,7 @@
             <OnMismatch>NEUTRAL</OnMismatch>
             <OnMatch>DENY</OnMatch>
         </filter>
-
     </appender>
-
-    <!-- Application Loggers
-    <logger name="com.xxx.yyy">
-           <level value="debug" />
-    </logger>
-     -->
 
     <!-- 3rdparty Loggers -->
     <logger name="org.springframework.core">
@@ -41,48 +35,13 @@
         <level value="error" />
     </logger>
 
-    <!-- 관련 정보 http://magefister.egloos.com/2053938 -->
-    <logger name="java.sql">
-        <level value="error"/>
-        <appender-ref ref="STDOUT" />
+    <logger name="net.brainage.example.mapper">
+        <level value="debug" />
     </logger>
-    <!-- SQL문만을 로그로 남기며, PreparedStatement일 경우 관련된 argument 값으로 대체된 SQL문이 보여진다. -->
-    <logger name="jdbc.sqlonly" additivity="false">
-        <level value="error"/>
-        <appender-ref ref="STDOUT" />
-    </logger>
-    <!-- SQL문과 해당 SQL을 실행시키는데 수행된 시간 정보(milliseconds)를 포함한다. -->
-    <logger name="jdbc.sqltiming">
-        <level value="error"/>
-        <appender-ref ref="STDOUT" />
-    </logger>
-    <!-- ResultSet을 제외한 모든 JDBC 호출 정보를 로그로 남긴다. 많은 양의 로그가 생성되므로 특별히 JDBC 문제를 추적해야 할 필요가 있는 경우를 제외하고는 사용을 권장하지 않는다. -->
-    <logger name="jdbc.audit">
-        <appender-ref ref="STDOUT" />
-        <level value="error"/>
-    </logger>
-    <!-- ResultSet을 포함한 모든 JDBC 호출 정보를 로그로 남기므로 매우 방대한 양의 로그가 생성된다. -->
-    <logger name="jdbc.resultset">
-        <appender-ref ref="STDOUT" />
-        <level value="error"/>
-    </logger>
-
-    <logger name="jdbc.connection">
-        <appender-ref ref="STDOUT" />
-        <level value="error"/>
-    </logger>
-
-    <!--
-          <logger name="java.sql" level="debug" additivity="false">
-              <appender-ref ref="STDOUT" />
-          </logger>
-          <logger name="java.sql.connection" level="info" additivity="false">
-               <appender-ref ref="STDOUT" />
-      </logger>
-   -->
 
     <!-- Root Logger -->
     <root level="info">
         <appender-ref ref="STDOUT" />
     </root>
+
 </configuration>

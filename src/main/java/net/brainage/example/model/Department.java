@@ -34,7 +34,7 @@ public class Department implements Serializable {
 
     private int id;
 
-    private int name;
+    private String name;
 
     private String location;
 
