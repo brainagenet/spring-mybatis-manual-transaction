@@ -9,7 +9,6 @@
 	<packaging>jar</packaging>
 
 	<name>spring-mybatis-manual-transaction</name>
-	<description></description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -58,6 +57,11 @@
         </dependency>
 
 		<dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+        </dependency>
+
+        <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
